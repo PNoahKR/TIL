@@ -1,5 +1,3 @@
-package seleniumTest;
-
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;

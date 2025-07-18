@@ -1,5 +1,3 @@
-package seleniumTest;
-
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -54,7 +52,7 @@ public class seleniumTest {
         searchBtn.click();
         
         
-     // 5. 채용공고 리스트 가져오기
+        // 5. 채용공고 리스트 가져오기
         // 결과 페이지 로드될 때까지 대기
         wait.until(ExpectedConditions.visibilityOfElementLocated(
             By.cssSelector(".list-default") // 공고 리스트 영역
