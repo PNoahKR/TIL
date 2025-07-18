@@ -37,7 +37,7 @@ public class seleniumJobList {
         String[] jobIds = {
             "duty_step2_1000229", // 백엔드개발자
             "duty_step2_1000230", // 프론트엔드개발자
-            "duty_step2_1000232"  // 웹개발자
+            "duty_step2_1000231"  // 웹개발자
         };
 
         for (String id : jobIds) {
@@ -91,5 +91,28 @@ public class seleniumJobList {
 
             System.out.printf("| %s | %s | [바로가기](%s) | %s |\n", company, title, fullLink, deadline);
         }
+        String[][] jobData = new String[maxJobs][4];
+
+        for (int i = 0; i < maxJobs; i++) {
+            WebElement row = jobRows.get(i);
+
+            String company = row.findElement(By.cssSelector("td.tplCo a")).getText().trim();
+            WebElement titleAnchor = row.findElement(By.cssSelector("td.tplTit strong a"));
+            String title = titleAnchor.getText().trim();
+            String partialLink = titleAnchor.getAttribute("href").trim();
+            String fullLink = partialLink.startsWith("http") ? partialLink : "https://www.jobkorea.co.kr" + partialLink;
+            String deadline = "마감일 정보 없음";
+
+            try {
+                deadline = row.findElement(By.cssSelector("td.odd span.date")).getText().trim();
+            } catch (Exception ignored) {}
+
+            jobData[i][0] = company;
+            jobData[i][1] = title;
+            jobData[i][2] = fullLink;
+            jobData[i][3] = deadline;
+        }
+        
+        JobListViewer.showJobTable(jobData);
 	}
 }
