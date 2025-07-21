@@ -91,7 +91,7 @@ public class MyFirstProgram {
   String[] hobby = new String[] {”등산”, “게임”, “독서”};`
 
 ### **연산자**
-![java.png](java1.png)
+![java.png](Image/java1.png)
 
 ### **조건문 (Conditional)**
 
