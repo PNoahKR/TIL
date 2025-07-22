@@ -15,5 +15,6 @@ public class BOJ_2440 {
 			}
 			System.out.println();
 		}
+		sc.close();
 	}
 }

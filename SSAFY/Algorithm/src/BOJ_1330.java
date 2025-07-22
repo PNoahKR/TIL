@@ -24,5 +24,6 @@ public class BOJ_1330 {
         //삼항연사자 -> 마니아틱함;
         //output = (A > B) ? ">" : ((A < B) ? "<" : "==");
         System.out.println(output);
+        sc.close();
 	}
 }

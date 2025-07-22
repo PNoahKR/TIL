@@ -16,5 +16,6 @@ public class BOJ_2525 {
         
         //출력
         System.out.print(h + " " + m);
+        sc.close();
 	}
 }

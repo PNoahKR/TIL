@@ -49,5 +49,6 @@ public class BOJ_5585 {
 		solution(1);
 		
 		System.out.println(count);
+		sc.close();
 	}
 }

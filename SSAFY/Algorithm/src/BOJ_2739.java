@@ -8,5 +8,6 @@ public class BOJ_2739 {
             System.out.println(N + " * " + i + " = " + N * i);
             System.out.printf("%d * %d = %d\n", N, i, N * i);
         }
+        sc.close();
 	}
 }

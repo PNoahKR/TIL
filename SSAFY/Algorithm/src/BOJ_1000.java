@@ -12,5 +12,7 @@ public class BOJ_1000 {
 		int b = Integer.parseInt(st.nextToken());
 		
 		System.out.println(a + b);
+		
+		br.close();
 	}
 }

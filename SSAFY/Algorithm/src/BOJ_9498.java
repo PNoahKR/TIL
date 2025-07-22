@@ -17,5 +17,6 @@ public class BOJ_9498 {
         } else {
             System.out.print("F");
         }
+        sc.close();
 	}
 }

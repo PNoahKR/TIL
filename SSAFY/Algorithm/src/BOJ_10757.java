@@ -12,6 +12,8 @@ public class BOJ_10757 {
 		
 		System.out.println(a.add(b));
 		
+		sc.close();
+		
 		
 	}
 }
