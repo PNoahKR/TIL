@@ -2,5 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/온라인실습실/java_ws_01_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/온라인실습실/java_ws_01_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/온라인실습실/java_ws_01_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/온라인실습실/java_ws_01_a" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/온라인실습실/java_ws_01_b" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SSAFY/온라인실습실/java_ws_01_c" vcs="Git" />
   </component>
 </project>
