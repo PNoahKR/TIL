@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_02_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_02_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_02_5/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_03_a/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_03_b/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_03_1/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_03_c/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_03_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_03_3/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_03_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_04_1/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_04_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_04_3/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_05_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_hw_07_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_hw_07_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_06_a/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_06_b/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_06_c/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_08_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_09_3/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_hw_09_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_hw_09_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_09_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_10_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_hw_01_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_hw_01_4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_10_3/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_hw_10_2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_ws_10_c/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
