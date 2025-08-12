@@ -1,9 +1,6 @@
-package algorithm_solving;
-
 import java.util.Scanner;
 
 public class SWEA_계곡찾기 {
-	// 상하좌우 델타배열
 	static int[] dr = { -1, 1, 0, 0 };
 	static int[] dc = { 0, 0, -1, 1 };
 
@@ -12,9 +9,7 @@ public class SWEA_계곡찾기 {
 
 		int T = sc.nextInt();
 
-		for (int test_case = 1; test_case <= 10; test_case++) {
-			// 입력
-			// 맵 크기
+		for (int test_case = 1; test_case <= T; test_case++) {
 			int N = sc.nextInt();
 			int[][] map = new int[N][N];
 
@@ -24,30 +19,28 @@ public class SWEA_계곡찾기 {
 				}
 			}
 
-			// 로직
-			// 계곡의 개수
-			int valley = 0;
-			// 델타배열을 이용해 상하좌우가 나보다 높다면, 계곡 + 1
-			// 가장자리는 탐색하지 않으니 탐색 범위는 1 -> N-1
-			for (int i = 1; i < N-1; i++) {
-				for (int j = 1; j < N-1; j++) {
-					boolean found = true;
-					for (int k = 0; k < 4; k++) {
-						int nr = i + dr[k];
-						int nc = j + dc[k];
-						if(map[nr][nc] <= map[i][j]) {
-							found = false;
-							break;
-						}
-					}
-					if(found) {
-						valley++;
+			int sum = 0;
+
+			for (int i = 1; i < N - 1; i++) {
+				for (int j = 1; j < N - 1; j++) {
+					if (isValley(map, i, j)) { 
+						sum++;
 					}
 				}
 			}
 
-			// 출력
-			System.out.println("#" + test_case + " " + valley);
+			System.out.println("#" + test_case + " " + sum);
 		}
+	}
+
+	public static boolean isValley(int[][] map, int r, int c) {
+		for (int k = 0; k < 4; k++) {
+			int nr = r + dr[k];
+			int nc = c + dc[k];
+			if (map[r][c] >= map[nr][nc]) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
