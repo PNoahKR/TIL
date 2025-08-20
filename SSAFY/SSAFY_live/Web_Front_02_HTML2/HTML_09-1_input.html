@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>input Tag</title>
+  </head>
+  <body>
+    <!-- input 태그 작성 -->
+    <h1>📌 input 태그 종합 예제</h1>
+
+    <!-- form 태그와 함께 input 사용 -->
+    <form action="/submit" method="GET">
+      <!-- 1. text 입력 -->
+      <label for="">ID</label>
+      <input type="text" name="id" placeholder="아이디를 입력해주세요" required />
+      <br />
+      <br />
+      <!-- 2. password 입력 -->
+      <label for="">PW</label>
+      <input id="PW" type="password" name="password" placeholder="비밀번호 입력" minlength="6" maxlength="12" />
+      <br />
+      <br />
+      <!-- 3. number 입력 -->
+      <label for="">나이</label>
+      <input type="number" name="age" min="0" max="100" step="5" value="10" />
+      <br />
+      <br />
+      <!-- 4. email 입력 (@체크해줌) -->
+      <label for="">email</label>
+      <input type="email" name="email" id="" placeholder="이메일을 입력해주세요" />
+      <br />
+      <br />
+      <!-- 5. file 업로드 -->
+      <label for="">파일 1개</label>
+      <input type="file" multiple accept="image/*" />
+      <br />
+      <br />
+      <!-- 6. checkbox (다중 선택 가능)-->
+      <div>
+        <span>관심언어</span>
+        <input type="checkbox" name="pl" id="java" value="java" />
+        <label for="java">Java</label>
+        <input type="checkbox" name="pl" id="python" value="python" />
+        <label for="python">Python</label>
+        <input type="checkbox" name="pl" id="c++" value="c++" />
+        <label for="c++">C++</label>
+      </div>
+      <!-- 7. radio (다중 선택 불가능)-->
+      <div>
+        <span>캠퍼스 선택</span>
+        <label for="서울">
+          <input type="radio" name="campus" id="서울" value="서울" />
+          서울
+        </label>
+        <label for="대전">
+          <input type="radio" name="campus" id="대전" value="대전" />
+          대전
+        </label>
+        <label for="광주">
+          <input type="radio" name="campus" id="광주" value="광주" />
+          광주
+        </label>
+        <label for="구미">
+          <input type="radio" name="campus" id="구미" value="구미" />
+          구미
+        </label>
+        <label for="부울경">
+          <input type="radio" name="campus" id="부울경" value="부울경" />
+          부울경
+        </label>
+      </div>
+
+      <!-- 8. hidden (서버로만 전달, 화면엔 안보임) -->
+      <input type="hidden" value="필수!" />
+      <!-- 9. submit 버튼 -->
+      <input type="submit" value="제출" />
+      <br />
+      <br />
+      <!-- 10. reset 버튼 -->
+      <input type="reset" value="초기화" />
+      <br />
+      <br />
+      <!-- 11. 일반 버튼 -->
+      <button>SUBMIT 처럼 동작을 한다.</button>
+    </form>
+  </body>
+</html>
