@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSAFY 챗봇</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding-top: 60px; /* nav height */
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        nav .brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .lang-switcher {
+             margin-top: 1rem;
+             text-align: center;
+        }
+        .lang-switcher button {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="brand">SSAFY</a>
+        <div>
+            <a href="login.html" data-lang-key="nav_login">로그인</a>
+            <a href="register.html" data-lang-key="nav_register">회원가입</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 data-lang-key="welcome_title">SSAFY 챗봇 서비스에 오신 것을 환영합니다.</h1>
+        <p data-lang-key="welcome_message">
+            SSAFY 챗봇은 여러분의 질문에 답변하고, 정보를 제공하며, 다양한 작업을 도와주는 인공지능 비서입니다. 최신 기술을 기반으로 하여 자연스러운 대화가 가능하며, 사용자의 의도를 정확하게 파악하여 최적의 답변을 제공합니다. 로그인하여 SSAFY 챗봇의 모든 기능을 경험해보세요.
+        </p>
+    </div>
+    <div class="lang-switcher">
+        <button onclick="switchLang('ko')">한국어</button>
+        /
+        <button onclick="switchLang('en')">English</button>
+    </div>
+
+    <script>
+        const translations = {
+            'ko': {
+                'title': 'SSAFY 챗봇',
+                'nav_login': '로그인',
+                'nav_register': '회원가입',
+                'welcome_title': 'SSAFY 챗봇 서비스에 오신 것을 환영합니다.',
+                'welcome_message': 'SSAFY 챗봇은 여러분의 질문에 답변하고, 정보를 제공하며, 다양한 작업을 도와주는 인공지능 비서입니다. 최신 기술을 기반으로 하여 자연스러운 대화가 가능하며, 사용자의 의도를 정확하게 파악하여 최적의 답변을 제공합니다. 로그인하여 SSAFY 챗봇의 모든 기능을 경험해보세요.'
+            },
+            'en': {
+                'title': 'SSAFY Chatbot',
+                'nav_login': 'Login',
+                'nav_register': 'Register',
+                'welcome_title': 'Welcome to the SSAFY Chatbot Service.',
+                'welcome_message': 'The SSAFY Chatbot is an AI assistant that answers your questions, provides information, and helps with various tasks. Based on the latest technology, it enables natural conversations and accurately understands user intent to provide optimal answers. Log in to experience all the features of the SSAFY Chatbot.'
+            }
+        };
+
+        function switchLang(lang) {
+            document.documentElement.lang = lang;
+            document.title = translations[lang]['title'];
+            document.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>

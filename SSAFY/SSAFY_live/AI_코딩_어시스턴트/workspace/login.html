@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding-top: 60px; /* nav height */
+        }
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .container h1 {
+            margin-bottom: 1.5rem;
+        }
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .container button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .lang-switcher {
+            margin-top: 1rem;
+        }
+        .lang-switcher button {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0;
+            font-size: 0.9rem;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 1rem;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        nav .brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="brand">SSAFY</a>
+        <div>
+            <a href="login.html" data-lang-key="nav_login">로그인</a>
+            <a href="register.html" data-lang-key="nav_register">회원가입</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 data-lang-key="heading">로그인</h1>
+        <form action="/login" method="post">
+            <div>
+                <input type="text" name="username" data-lang-key="username_placeholder" placeholder="사용자 이름" required>
+            </div>
+            <div>
+                <input type="password" name="password" data-lang-key="password_placeholder" placeholder="비밀번호" required>
+            </div>
+            <button type="submit" data-lang-key="login_button">로그인</button>
+        </form>
+        <div class="lang-switcher">
+            <button onclick="switchLang('ko')">한국어</button>
+            /
+            <button onclick="switchLang('en')">English</button>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            'ko': {
+                'title': '로그인',
+                'nav_login': '로그인',
+                'nav_register': '회원가입',
+                'heading': '로그인',
+                'username_placeholder': '사용자 이름',
+                'password_placeholder': '비밀번호',
+                'login_button': '로그인'
+            },
+            'en': {
+                'title': 'Login',
+                'nav_login': 'Login',
+                'nav_register': 'Register',
+                'heading': 'Login',
+                'username_placeholder': 'Username',
+                'password_placeholder': 'Password',
+                'login_button': 'Login'
+            }
+        };
+
+        function switchLang(lang) {
+            document.documentElement.lang = lang;
+            document.title = translations[lang]['title'];
+            document.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerText = translations[lang][key];
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
