@@ -6,6 +6,5 @@
     <mapping directory="$PROJECT_DIR$/java_ws_10_2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/java_ws_10_3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/java_ws_10_4" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/java_ws_10_c" vcs="Git" />
   </component>
 </project>
