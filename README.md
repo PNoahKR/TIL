@@ -45,6 +45,7 @@
 - [JavaScript 기본문법](Web_Front/0822_Web_JavaScript_기본문법.md)
 - [JavaScript 함수](Web_Front/0825_Web_JavaScript함수.md)
 - [JavaScript Event & WebStorage](Web_Front/0826_Web_JavaScript_Event&WebStorage.md)
+- [JavaScript AJAX](Web_Front/0827_Web_JavaScript_AJAX.md)
 
 ## [APS(Algorithm Problem Solving)](APS)
 
@@ -58,4 +59,7 @@
 - [APS - LinkedList](APS/0812_APS_LinkedList.md)
 - [APS - Tree](APS/0813_APS_Tree.md)
 - [APS - Heap](APS/0814_APS_Heap.md)
+- [APS 응용 - 비트연산자 & 부분집합](APS/0828_APS응용_비트연산자&부분집합.md)
+- [APS 응용 - 조합](APS/0829_APS응용_조합.md)
+- [APS 응용 - 분할정복](APS/0901_APS응용_분할정복.md)
 
