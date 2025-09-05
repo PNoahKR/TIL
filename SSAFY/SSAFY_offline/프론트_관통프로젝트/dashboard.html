@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>냠냠코치 - 대시보드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">💪 냠냠코치</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">대시보드</a></li>
+                    <li class="nav-item"><a class="nav-link" href="meal_log.html">식단기록</a></li>
+                    <li class="nav-item"><a class="nav-link" href="challenge.html">챌린지</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">커뮤니티</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ai_coach.html">AI코치</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> 마이페이지
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html">프로필 수정</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 70px;">
+      <section class="mb-5 scroll-content">
+        <h2 class="mb-3 border-bottom pb-2">오늘의 식단 상세</h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card text-center h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">목표 칼로리</h5>
+                <p class="fs-2 text-success fw-bold">
+                  <span id="goal-calories">2000</span>
+                  <span class="fs-6 text-muted">kcal</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-center h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">섭취 칼로리</h5>
+                <p class="fs-2 text-success fw-bold">
+                  <span id="consumed-calories">0</span>
+                  <span class="fs-6 text-muted">kcal</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title mb-3">영양소 섭취 현황</h5>
+                <div>
+                  <label class="form-label">단백질</label>
+                  <div class="progress" style="height: 20px">
+                    <div id="protein-progress" class="progress-bar bg-primary" role="progressbar" style="width: 0%">0g / 100g</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <label class="form-label">탄수화물</label>
+                  <div class="progress" style="height: 20px">
+                    <div id="carbs-progress" class="progress-bar bg-warning" role="progressbar" style="width: 0%">0g / 100g</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <label class="form-label">지방</label>
+                  <div class="progress" style="height: 20px">
+                    <div id="fat-progress" class="progress-bar bg-danger" role="progressbar" style="width: 0%">0g / 100g</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5 scroll-content">
+        <h2 class="mb-3 border-bottom pb-2">주간 섭취량 분석</h2>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <canvas id="weeklyNutritionChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="scroll-content">
+        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+          <h2>최근 식단 기록</h2>
+          <a href="meal_log.html" class="btn btn-success">
+            <i class="fas fa-plus me-1"></i>
+            식단 기록하기
+          </a>
+        </div>
+        <div class="list-group shadow-sm" id="meal-list-container">
+          <!-- 최근 식단 기록이 여기에 동적으로 생성됩니다. -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+      <div class="container">
+        <p class="mb-0">&copy; 2025 YumYumCoach. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dataManager.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          {
+            threshold: 0.1, // 10% 보였을 때 실행
+          }
+        );
+
+        const scrollContent = document.querySelectorAll(".scroll-content");
+        scrollContent.forEach((content) => {
+          observer.observe(content);
+        });
+      });
+    </script>
+    <script>
+        const TODAY = new Date().toISOString().split('T')[0];
+
+        // 데이터 로드 및 렌더링 함수
+        function loadDashboardData() {
+            const userData = getUserData();
+            if (!userData) return;
+
+            // 1. 오늘의 섭취 현황 업데이트
+            updateTodaySummary(userData.meals, userData.goals);
+
+            // 2. 최근 식단 기록 목록 생성
+            renderMealList(userData.meals);
+
+            // 3. 주간 섭취량 차트 생성
+            renderWeeklyChart(userData.meals);
+        }
+
+        function updateTodaySummary(meals, goals) {
+            const todayMeals = meals.filter(meal => meal.date === TODAY);
+            
+            let totalCalories = 0, totalProtein = 0, totalCarbs = 0, totalFat = 0;
+            
+            todayMeals.forEach(meal => {
+                meal.foods.forEach(food => {
+                    totalCalories += food.calories;
+                    totalProtein += food.protein;
+                    totalCarbs += food.carbs;
+                    totalFat += food.fat;
+                });
+            });
+
+            // 화면 요소 업데이트
+            document.querySelector('#goal-calories').textContent = goals.dailyCalories;
+            document.querySelector('#consumed-calories').textContent = Math.round(totalCalories);
+
+            // 프로그레스 바 업데이트
+            updateProgressBar('#protein-progress', totalProtein, goals.protein);
+            updateProgressBar('#carbs-progress', totalCarbs, goals.carbs);
+            updateProgressBar('#fat-progress', totalFat, goals.fat);
+        }
+
+        function updateProgressBar(selector, current, goal) {
+            const percentage = goal > 0 ? Math.min((current / goal) * 100, 100) : 0;
+            const progressBar = document.querySelector(selector);
+            progressBar.style.width = `${percentage}%`;
+            progressBar.textContent = `${Math.round(current)}g / ${goal}g`;
+        }
+
+        function renderMealList(meals) {
+            const mealListContainer = document.querySelector('#meal-list-container');
+            mealListContainer.innerHTML = ''; 
+
+            if(meals.length === 0){
+                mealListContainer.innerHTML = '<p class="text-center text-muted">아직 기록된 식단이 없습니다.</p>';
+                return;
+            }
+
+            // 최신 날짜순으로 정렬 후, 상위 5개만 선택
+            const sortedMeals = meals.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
+
+            sortedMeals.forEach(meal => {
+                const foodsHtml = meal.foods.map(food => food.name).join(', ');
+                const totalNutrients = meal.foods.reduce((acc, food) => {
+                    acc.calories += food.calories;
+                    acc.protein += food.protein;
+                    acc.carbs += food.carbs;
+                    acc.fat += food.fat;
+                    return acc;
+                }, { calories: 0, protein: 0, carbs: 0, fat: 0 });
+
+                const mealHtml = `
+                    <div class="list-group-item list-group-item-action" data-meal-id="${meal.id}">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">${meal.date} (${meal.type})</h5>
+                        </div>
+                        <p class="mb-1">${foodsHtml}</p>
+                        <small class="text-muted">
+                            칼로리: ${Math.round(totalNutrients.calories)}kcal | 단백질: ${Math.round(totalNutrients.protein)}g | 탄수화물: ${Math.round(totalNutrients.carbs)}g | 지방: ${Math.round(totalNutrients.fat)}g
+                        </small>
+                        <div class="mt-2">
+                            <button class="btn btn-sm btn-outline-secondary edit-btn">수정</button>
+                            <button class="btn btn-sm btn-outline-danger delete-btn">삭제</button>
+                        </div>
+                    </div>`;
+                mealListContainer.innerHTML += mealHtml;
+            });
+        }
+
+        let weeklyChart = null;
+        function renderWeeklyChart(meals) {
+            const ctx = document.getElementById('weeklyNutritionChart').getContext('2d');
+            if(weeklyChart) {
+                weeklyChart.destroy();
+            }
+            
+            // 최근 7일간의 데이터 집계
+            const weeklyData = {};
+            const today = new Date(TODAY);
+
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(today.getDate() - i);
+                const dateString = date.toISOString().split('T')[0];
+                weeklyData[dateString] = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+            }
+
+            meals.forEach(meal => {
+                if (weeklyData.hasOwnProperty(meal.date)) {
+                    meal.foods.forEach(food => {
+                        weeklyData[meal.date].calories += food.calories;
+                        weeklyData[meal.date].protein += food.protein;
+                        weeklyData[meal.date].carbs += food.carbs;
+                        weeklyData[meal.date].fat += food.fat;
+                    });
+                }
+            });
+
+            const labels = Object.keys(weeklyData);
+            const calorieData = labels.map(date => weeklyData[date].calories);
+            const proteinData = labels.map(date => weeklyData[date].protein);
+            const carbsData = labels.map(date => weeklyData[date].carbs);
+            const fatData = labels.map(date => weeklyData[date].fat);
+
+            weeklyChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels.map(l => new Date(l).toLocaleDateString('ko-KR', { month: 'long', day: 'numeric' })),
+                    datasets: [{
+                        label: '칼로리 (kcal)',
+                        data: calorieData,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        fill: false,
+                        yAxisID: 'y-axis-calories'
+                    }, {
+                        label: '단백질 (g)',
+                        data: proteinData,
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        fill: false,
+                        yAxisID: 'y-axis-nutrients'
+                    }, {
+                        label: '탄수화물 (g)',
+                        data: carbsData,
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        fill: false,
+                        yAxisID: 'y-axis-nutrients'
+                    }, {
+                        label: '지방 (g)',
+                        data: fatData,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: false,
+                        yAxisID: 'y-axis-nutrients'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        'y-axis-calories': {
+                            type: 'linear',
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: '칼로리 (kcal)'
+                            }
+                        },
+                        'y-axis-nutrients': {
+                            type: 'linear',
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: '영양소 (g)'
+                            },
+                            grid: {
+                                drawOnChartArea: false // only want the grid lines for one axis to show up
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 페이지 로드 시 데이터 로딩 함수 실행
+        document.addEventListener('DOMContentLoaded', loadDashboardData);
+
+        // 식단 목록의 수정/삭제 버튼 이벤트 리스너
+        document.getElementById('meal-list-container').addEventListener('click', function(e) {
+            const target = e.target;
+            const mealItem = target.closest('.list-group-item');
+            if (!mealItem) return;
+
+            const mealId = Number(mealItem.dataset.mealId);
+
+            if (target.classList.contains('delete-btn')) {
+                if (confirm('이 식단 기록을 삭제하시겠습니까?')) {
+                    deleteItem('meals', mealId);
+                    loadDashboardData(); // 데이터 삭제 후 대시보드 다시 렌더링
+                }
+            }
+            if (target.classList.contains('edit-btn')) {
+                window.location.href = `meal_log.html?edit=${mealId}`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>냠냠코치 - 챌린지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">💪 냠냠코치</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">대시보드</a></li>
+                    <li class="nav-item"><a class="nav-link" href="meal_log.html">식단기록</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="challenge.html">챌린지</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">커뮤니티</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ai_coach.html">AI코치</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> 마이페이지
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html">프로필 수정</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html">로그아웃</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 70px;">
+      <section class="mb-5">
+        <div class="card shadow-sm">
+          <div class="card-header bg-success text-white">
+            <h2 class="h4 mb-0">새로운 챌린지 만들기</h2>
+          </div>
+          <div class="card-body">
+            <form id="challenge-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="challengeTitle" class="form-label">챌린지 제목</label>
+                  <input type="text" class="form-control" id="challengeTitle" placeholder="예: 하루 단백질 100g 채우기" />
+                </div>
+                <div class="col-md-6">
+                  <label for="challengeType" class="form-label">챌린지 유형</label>
+                  <select class="form-select" id="challengeType">
+                    <option value="calories" selected>칼로리 섭취</option>
+                    <option value="protein">단백질 섭취</option>
+                    <option value="carbs">탄수화물 섭취</option>
+                    <option value="fat">지방 섭취</option>
+                    <option value="exercise">운동량</option>
+                    <option value="weight">체중 감량</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="challengeGoal" class="form-label">목표량</label>
+                  <input type="text" class="form-control" id="challengeGoal" placeholder="예: 100 (g)" />
+                </div>
+                <div class="col-md-6">
+                  <label for="challengePeriod" class="form-label">기간 (일)</label>
+                  <input type="number" class="form-control" id="challengePeriod" placeholder="예: 30" />
+                </div>
+                <div class="col-12">
+                  <label for="challengeDesc" class="form-label">설명</label>
+                  <textarea class="form-control" id="challengeDesc" rows="3"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">챌린지 생성</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="challenge-list">
+        <h2 class="mb-3 border-bottom pb-2">진행 중인 챌린지</h2>
+        <!-- 챌린지 목록이 여기에 동적으로 생성됩니다. -->
+      </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+      <div class="container">
+        <p class="mb-0">&copy; 2025 YumYumCoach. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dataManager.js"></script>
+    <script>
+      function renderChallenges() {
+        const challenges = getData('challenges');
+        const challengeListContainer = document.getElementById('challenge-list');
+        
+        const h2 = challengeListContainer.querySelector('h2');
+        challengeListContainer.innerHTML = ''; // Clear previous list
+        challengeListContainer.appendChild(h2); // Re-add the title
+
+        if (!challenges || challenges.length === 0) {
+            challengeListContainer.innerHTML += '<p class="text-center text-muted">아직 생성된 챌린지가 없습니다.</p>';
+            return;
+        }
+
+        const activeChallenges = challenges.filter(c => c.status === 'active');
+
+        activeChallenges.forEach(challenge => {
+          const progress = challenge.goal > 0 ? (challenge.current / challenge.goal) * 100 : 0;
+          const card = document.createElement('div');
+          card.className = 'card mb-3 shadow-sm';
+          card.innerHTML = `
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title">${challenge.title}</h5>
+                <div>
+                    <span class="badge bg-primary me-2">진행 중</span>
+                    <button class="btn btn-sm btn-outline-danger delete-challenge-btn" data-challenge-id="${challenge.id}"><i class="fas fa-trash-alt"></i></button>
+                </div>
+              </div>
+              <p class="card-text"><small class="text-muted">${challenge.startDate} ~ ${challenge.endDate}</small></p>
+              <div class="progress" style="height: 25px">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: ${progress}%">${challenge.current} / ${challenge.goal}</div>
+              </div>
+            </div>`;
+          challengeListContainer.appendChild(card);
+        });
+      }
+
+      document.getElementById('challenge-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          const title = document.getElementById('challengeTitle').value;
+          const type = document.getElementById('challengeType').value;
+          const goal = document.getElementById('challengeGoal').value;
+          const period = document.getElementById('challengePeriod').value;
+          const description = document.getElementById('challengeDesc').value;
+
+          if (!title || !goal || !period) {
+              alert('챌린지 제목, 목표량, 기간을 모두 입력해주세요.');
+              return;
+          }
+
+          const today = new Date();
+          const endDate = new Date();
+          endDate.setDate(today.getDate() + parseInt(period));
+
+          const newChallenge = {
+              id: Date.now(),
+              title,
+              description,
+              type,
+              goal: parseFloat(goal),
+              current: 0,
+              startDate: today.toISOString().split('T')[0],
+              endDate: endDate.toISOString().split('T')[0],
+              status: 'active',
+              participants: 1
+          };
+
+          addItem('challenges', newChallenge);
+          this.reset();
+          renderChallenges();
+      });
+
+      document.getElementById('challenge-list').addEventListener('click', function(e) {
+          const deleteButton = e.target.closest('.delete-challenge-btn');
+          if (!deleteButton) return;
+
+          const challengeId = Number(deleteButton.dataset.challengeId);
+          if (confirm('정말로 이 챌린지를 삭제하시겠습니까?')) {
+              deleteItem('challenges', challengeId);
+              renderChallenges();
+          }
+      });
+
+      document.addEventListener('DOMContentLoaded', renderChallenges);
+    </script>
+  </body>
+</html>

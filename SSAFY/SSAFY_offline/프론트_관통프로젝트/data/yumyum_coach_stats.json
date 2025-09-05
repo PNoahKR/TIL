@@ -1,0 +1,205 @@
+{
+  "obesityStats": {
+    "source": "국민건강영양조사(2023) [재구성]",
+    "description": "만 19세 이상 비만 유병률 (체질량지수 ≥ 25 kg/m²)",
+    "byAgeAndGender": {
+      "19-29": {
+        "total": 33.5,
+        "male": 43.9,
+        "female": 22.1
+      },
+      "30-39": {
+        "total": 39.8,
+        "male": 50.4,
+        "female": 27.2
+      },
+      "40-49": {
+        "total": 37.7,
+        "male": 50.2,
+        "female": 24.5
+      },
+      "50-59": {
+        "total": 40.5,
+        "male": 49.9,
+        "female": 31.0
+      },
+      "60-69": {
+        "total": 35.4,
+        "male": 34.1,
+        "female": 36.6
+      },
+      "70+": {
+        "total": 34.6,
+        "male": 28.9,
+        "female": 38.8
+      }
+    }
+  },
+  "averageIntake": {
+    "source": "국민건강영양조사(2023)",
+    "description": "1일 평균 에너지 섭취량 (kcal)",
+    "byAgeAndGender": {
+      "19-29": {
+        "total": 2119.0,
+        "male": 2420.0,
+        "female": 1817.0
+      },
+      "30-39": {
+        "total": 2125.0,
+        "male": 2444.0,
+        "female": 1797.0
+      },
+      "40-49": {
+        "total": 2045.0,
+        "male": 2364.0,
+        "female": 1723.0
+      },
+      "50-59": {
+        "total": 1948.0,
+        "male": 2267.0,
+        "female": 1648.0
+      },
+      "60-69": {
+        "total": 1812.0,
+        "male": 2108.0,
+        "female": 1547.0
+      },
+      "70+": {
+        "total": 1568.0,
+        "male": 1811.0,
+        "female": 1374.0
+      }
+    }
+  },
+  "foodRanking": {
+    "source": "국민건강영양조사(2023) [재구성]",
+    "topConsumedFoods": [
+      {
+        "rank": 1,
+        "name": "멥쌀"
+      },
+      {
+        "rank": 2,
+        "name": "우유"
+      },
+      {
+        "rank": 3,
+        "name": "배추김치"
+      },
+      {
+        "rank": 4,
+        "name": "돼지고기"
+      },
+      {
+        "rank": 5,
+        "name": "사과"
+      },
+      {
+        "rank": 6,
+        "name": "달걀"
+      },
+      {
+        "rank": 7,
+        "name": "탄산음료"
+      },
+      {
+        "rank": 8,
+        "name": "맥주"
+      },
+      {
+        "rank": 9,
+        "name": "닭고기"
+      },
+      {
+        "rank": 10,
+        "name": "양파"
+      },
+      {
+        "rank": 11,
+        "name": "소주"
+      },
+      {
+        "rank": 12,
+        "name": "소고기"
+      },
+      {
+        "rank": 13,
+        "name": "빵"
+      },
+      {
+        "rank": 14,
+        "name": "감자"
+      },
+      {
+        "rank": 15,
+        "name": "두부"
+      },
+      {
+        "rank": 16,
+        "name": "무"
+      },
+      {
+        "rank": 17,
+        "name": "과일음료"
+      },
+      {
+        "rank": 18,
+        "name": "두유"
+      },
+      {
+        "rank": 19,
+        "name": "고구마"
+      },
+      {
+        "rank": 20,
+        "name": "기타가당음료"
+      }
+    ],
+    "topNutrientSources": {
+      "energy": [
+        {
+          "rank": 1,
+          "name": "멥쌀"
+        },
+        {
+          "rank": 2,
+          "name": "돼지고기"
+        },
+        {
+          "rank": 3,
+          "name": "빵"
+        },
+        {
+          "rank": 4,
+          "name": "소고기"
+        },
+        {
+          "rank": 5,
+          "name": "달걀"
+        }
+      ],
+      "protein": [
+        {
+          "rank": 1,
+          "name": "돼지고기"
+        },
+        {
+          "rank": 2,
+          "name": "쌀"
+        },
+        {
+          "rank": 3,
+          "name": "닭고기"
+        },
+        {
+          "rank": 4,
+          "name": "계란"
+        },
+        {
+          "rank": 5,
+          "name": "쇠고기"
+        }
+      ]
+    }
+  }
+}
